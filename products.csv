@@ -1,0 +1,50 @@
+name,category,sub_category,description,price,volume
+Rice,Grains,Staples,White rice for daily use,200,1kg
+Basmati Rice,Grains,Staples,Premium aromatic rice,120,1kg
+Brown Rice,Grains,Staples,Healthy whole grain rice,100,1kg
+Wheat Flour,Grains,Staples,Whole wheat flour for bread,40,1kg
+Harpic,Cleaners,Bathroom,Toilet cleaning liquid,90,500ml
+Lysol,Cleaners,Bathroom,Disinfectant surface cleaner,100,500ml
+Apple,Fruits,Fresh,Juicy red apples,120,1kg
+Orange Juice,Beverages,Juices,Fresh orange juice,70,1L
+Milk,Beverages,Dairy,Fresh cow milk,60,1L
+Salt,Spices,Staples,Common table salt,20,500g
+Sugar,Staples,Kitchen,Pure white sugar crystals,45,1kg
+Detergent,Cleaners,Laundry,Laundry cleaning powder,250,1kg
+Shampoo,Personal Care,Hygiene,Herbal shampoo for healthy hair,300,200ml
+Soap,Personal Care,Hygiene,Moisturizing body soap,50,100g
+Chocolates,Snacks,Confectionery,Assorted milk chocolates,150,250g
+Green Tea,Beverages,Healthy Drinks,Organic green tea leaves,200,250g
+Coffee,Beverages,Drinks,Premium roasted coffee beans,400,500g
+Biscuits,Snacks,Confectionery,Crunchy butter biscuits,80,500g
+Pasta,Staples,Italian,Italian pasta for quick meals,150,500g
+Oats,Grains,Healthy Grains,Whole grain oats for breakfast,180,500g
+Butter,Dairy,Spread,Unsalted creamy butter,120,500g
+Cheese,Dairy,Spread,Cheddar cheese slices,200,250g
+Honey,Staples,Healthy,Pure organic honey,300,500g
+Pickles,Staples,Condiments,Spicy mango pickles,180,400g
+Mustard Oil,Oils,Cooking,Cold-pressed mustard oil,150,1L
+Sunflower Oil,Oils,Cooking,Refined sunflower oil,180,1L
+Tomato Ketchup,Staples,Condiments,Sweet and tangy tomato ketchup,100,500g
+Mayonnaise,Staples,Condiments,Rich and creamy mayonnaise,200,500g
+Chicken Nuggets,Frozen Food,Meat,Frozen crispy chicken nuggets,350,1kg
+Fish Fingers,Frozen Food,Seafood,Frozen breaded fish fingers,400,1kg
+Peanut Butter,Staples,Spread,Crunchy peanut butter spread,250,500g
+Jam,Staples,Spread,Fruit mix jam,150,500g
+Eggs,Staples,Fresh,Organic brown eggs,180,12pcs
+Potatoes,Fruits & Vegetables,Fresh,Farm-fresh potatoes,50,2kg
+Onions,Fruits & Vegetables,Fresh,Fresh red onions,40,1kg
+Carrots,Fruits & Vegetables,Fresh,Fresh crunchy carrots,60,1kg
+Cucumber,Fruits & Vegetables,Fresh,Fresh green cucumbers,50,1kg
+Mango,Fruits,Seasonal,Juicy ripe mangoes,200,1kg
+Banana,Fruits,Fresh,Fresh ripe bananas,60,1kg
+Strawberries,Fruits,Seasonal,Fresh red strawberries,300,500g
+Grapes,Fruits,Fresh,Fresh seedless green grapes,120,1kg
+Yogurt,Dairy,Fermented,Plain creamy yogurt,90,500g
+Paneer,Dairy,Fermented,Fresh Indian cottage cheese,150,250g
+Ice Cream,Dairy,Frozen,Chocolate ice cream tub,250,1L
+Cornflakes,Grains,Breakfast,Crunchy breakfast cornflakes,150,500g
+Chips,Snacks,Packaged,Crunchy salted potato chips,50,200g
+Nachos,Snacks,Packaged,Spicy cheesy nachos,100,250g
+Soft Drink,Beverages,Carbonated,Cola-flavored soft drink,60,500ml
+Energy Drink,Beverages,Energy,High-caffeine energy drink,120,250ml
