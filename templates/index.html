@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Product Search</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        :root {
+            --primary-color: #6b46c1;
+            --secondary-color: #d53f8c;
+            --accent-color: #38a169;
+            --bg-light: #f7fafc;
+            --bg-dark: #1a202c;
+            --text-light: #2d3748;
+            --text-dark: #e2e8f0;
+            --card-bg-light: #ffffff;
+            --card-bg-dark: #2d3748;
+            --card-shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --card-shadow-dark: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body.light-mode {
+            background-color: var(--bg-light);
+            color: var(--text-light);
+        }
+
+        body.dark-mode {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            color: var(--primary-color);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(180deg);
+            color: var(--accent-color);
+        }
+
+        form {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        input[type="text"] {
+            flex-grow: 1;
+            padding: 0.75rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .light-mode input[type="text"] {
+            background-color: var(--card-bg-light);
+            color: var(--text-light);
+        }
+
+        .dark-mode input[type="text"] {
+            background-color: var(--card-bg-dark);
+            color: var(--text-dark);
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(107, 70, 193, 0.3);
+        }
+
+        button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            background-color: var(--primary-color);
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .results-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--card-bg-light);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            transition: all 0.3s;
+            animation: fadeIn 0.5s ease-out;
+            box-shadow: var(--card-shadow-light);
+        }
+
+        .dark-mode .card {
+            background-color: var(--card-bg-dark);
+            box-shadow: var(--card-shadow-dark);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .card-score, .card-price {
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .card-score span, .card-price span {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        .no-results {
+            text-align: center;
+            font-style: italic;
+            margin-top: 2rem;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            form {
+                flex-direction: column;
+            }
+
+            input[type="text"], button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <div class="container">
+        <div class="header">
+            <h1>Bizom Search</h1>
+            <button class="theme-toggle" onclick="toggleTheme()">🌓</button>
+        </div>
+        <form method="POST">
+            <input type="text" id="searchInput" name="query" placeholder="Search for products..." required value="{{ query }}">
+            <select name="retailer_type" required>
+                <option value="big" {% if retailer_type == 'big' %}selected{% endif %}>Big Vendor</option>
+                <option value="small" {% if retailer_type == 'small' %}selected{% endif %}>Small Vendor</option>
+            </select>
+            <button type="submit">Search</button>
+        </form>
+        
+      
+        <div id="results">
+            {% if top_results is not none %}
+                {% if not top_results.empty %}
+                    <div class="results-list">
+                        {% for index, row in top_results.iterrows() %}
+                            <div class="card">
+                                <div class="card-content">
+                                    <h2 class="card-title">{{ row['Name'] }}</h2>
+                                    <p class="card-score">Similarity: <span>{{ "%.2f"|format(row['SimilarityScore']) }}</span></p>
+                                    <p class="card-price">Price: <span>{{ row['Price'] }}</span></p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p class="no-results">No results found. Try a different search term.</p>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('light-mode');
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        }
+
+        // Check for saved theme preference or prefer-color-scheme
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+            document.body.classList.add('dark-mode');
+        }
+
+        // Listen for changes to prefer-color-scheme
+        prefersDarkScheme.addListener((e) => {
+            if (e.matches) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+        });
+    </script>
+</body>
+</html>
